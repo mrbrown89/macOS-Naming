@@ -1,9 +1,8 @@
 #!/bin/bash
 
 SERIALNUMBER=$(system_profiler SPHardwareDataType | awk '/Serial/ {print $4}')
-DEPT="$4"
 
-NEWNAME="nsc-mac-$DEPT-$SERIALNUMBER"
+NEWNAME="nsc-mac-$SERIALNUMBER"
 
 MAIN() {
     scutil --set ComputerName "$NEWNAME"

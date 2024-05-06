@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SERIALNUMBER=$(system_profiler SPHardwareDataType | awk '/Serial/ {print $4}')
-DEPT="$3"
+DEPT="$4"
 
 NEWNAME="nsc-mac-$DEPT-$SERIALNUMBER"
 

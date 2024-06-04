@@ -1,8 +1,11 @@
 #!/bin/bash
 
-SERIALNUMBER=$(system_profiler SPHardwareDataType | awk '/Serial/ {print $4}')
+ORG=
+DEPT=
+SERIALNUMBER=$(system_profiler SPHardwareDataType | awk '/Serial/ {print $4}' | sed 's/.*\(...\)/\1/')
 
-NEWNAME="nsc-mac-$SERIALNUMBER"
+
+NEWNAME="$ORG-$DEPT-$SERIALNUMBER"
 
 MAIN() {
     scutil --set ComputerName "$NEWNAME"
